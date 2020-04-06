@@ -6,7 +6,7 @@ import Nav from '@/components/Nav'
 import First from '@/components/First'
 import Second from '@/components/Second'
 import Third from '@/components/Third'
-import fourth from '@/components/fourth'
+import Fourth from '@/components/Fourth'
 import Fifth from '@/components/Fifth'
 import Sixth from '@/components/Sixth'
 Vue.use(Router)
@@ -34,14 +34,14 @@ export default new Router({
       component: Second
     },
     {
-      path: '/Third',
+      path: '/Third/',
       name: 'Third',
       component: Third
     },
     {
-      path: '/fourth',
-      name: 'fourth',
-      component: fourth
+      path: '/Fourth',
+      name: 'Fourth',
+      component: Fourth
     },
     {
       path: '/Fifth',

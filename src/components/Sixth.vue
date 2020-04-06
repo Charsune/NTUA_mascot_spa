@@ -33,6 +33,9 @@
         </a>          
       </div>
     </div>
+    <div class="public">
+      <img src="../assets/sixth/public/happi.png" alt="">
+    </div>
   </div>
 
 </template>
@@ -56,6 +59,8 @@ export default {
 <style scoped lang="scss">
 .sixth{
   background-color: #ffd876;
+  height: 100%;
+  width: 100%;
   .container{
     display: flex;
     flex-direction: column;
@@ -108,6 +113,16 @@ export default {
         height: 60px;
       }
     }
+  }
+}
+
+.public{
+  background-color: white;
+  height: 500px;
+  width: 340px;
+  img{
+    display: block;
+    height: 480px;
   }
 }
 

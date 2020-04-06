@@ -18,27 +18,14 @@
         </a>
       </div>
     </div> 
-     <!-- 選擇吉祥物-->
-    <carousel-3d :width="200" :height="280" :perspective="0" :space="280" :display="3">
-      <slide :index="0">
-        <img src="../assets/second/mascots/1.png" alt="">
-      </slide>
-      <slide :index="1">
-        <img src="../assets/second/mascots/2.png" alt="">
-      </slide>
-      <slide :index="2">
-        <img src="../assets/second/mascots/3.png" alt="">
-      </slide>
-      <slide :index="3">
-        <img src="../assets/second/mascots/4.png" alt="">
-      </slide>
-      <slide :index="4">
-        <img src="../assets/second/mascots/5.png" alt="">
-      </slide>
-      <slide :index="5">
-        <img src="../assets/second/mascots/6.png" alt="">
-      </slide>
-    </carousel-3d>
+    <div id="example">
+      <carousel-3d @after-slide-change="onAfterSlideChange" :width="200" :height="280" :perspective="0" :space="280" :display="3">
+        <slide v-for="(slide, i) in slides" :index="i">
+          <img :src="slide.src" />
+        </slide>
+      </carousel-3d>      
+    </div>
+
   <!-- 下方-->
     <div class="container">
       <a @click="handleNext" class="next_step">
@@ -57,20 +44,61 @@
 import Header from "@/components/Header";
 import { Carousel3d, Slide } from 'vue-carousel-3d';
 export default {
+  el: '#example',
   data(){
-    return{};
+    return{
+      index: 0,
+      slides: [
+        {
+          id: '1',
+          src: '/static/second/mascots/1.png',
+        }, 
+        {
+          id: '2',
+          src: '/static/second/mascots/2.png',
+        }, 
+        {
+          id: '3',
+          src: '/static/second/mascots/3.png',
+        }, 
+        {
+          id: '4',
+          src: '/static/second/mascots/4.png',
+        }, 
+        {
+          id: '5',
+          src: '/static/second/mascots/5.png',
+        }
+      ],
+    };
   },
   methods: {
+    onAfterSlideChange(index) {
+      this.index = index
+      // console.log('@onAfterSlideChange Callback Triggered', 'Slide Index ' + index)
+    },
     handleNext(){
-      this.$router.push("/Third" )
+      // console.log(this.slides)
+      // console.log(this.index)
+      const id = this.slides[this.index].id
+      // console.log(id)
+      // console.log(`/Third/${id}`)
+      this.$router.push(`/Third/${id}`)
+
+     /*  const id = this.slides  this.[index].id*/
     }
   },
+/*
+  computed: {
+    toButton() {
+      this.slides[index].id = handleNext(id)
+    },
+*/
   components: {
     Carousel3d,
-    Slide,
-    Header: Header
+    Slide
   }
-};
+}
 
 </script>
 
@@ -98,6 +126,7 @@ export default {
 }
 
 .carousel-3d-container {
+  height: auto !important;
   .carousel-3d-slide {
     background: transparent;
     border: 0px;
