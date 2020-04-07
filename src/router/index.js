@@ -34,22 +34,22 @@ export default new Router({
       component: Second
     },
     {
-      path: '/Third/',
+      path: '/Third/:id',
       name: 'Third',
       component: Third
     },
     {
-      path: '/Fourth',
+      path: '/Fourth/:id',
       name: 'Fourth',
       component: Fourth
     },
     {
-      path: '/Fifth',
+      path: '/Fifth/:id',
       name: 'Fifth',
       component: Fifth
     },
     {
-      path: '/Sixth',
+      path: '/Sixth/:id',
       name: 'Sixth',
       component: Sixth
     }

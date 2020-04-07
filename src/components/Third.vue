@@ -9,7 +9,7 @@
         <img src="../assets/third/operating_room.png" alt="">
       </a>
       <a class="mascot">
-        <img src="../assets/third/1.png" alt="">
+        <img :src="src" alt="">
       </a>
 
       <div class="ECG">
@@ -34,8 +34,16 @@ export default {
   },
   methods: {
     handleNext(){
-      this.$router.push("/Fourth" )
+      const {id} = this.$route.params
+      this.$router.push({ name: 'Fourth', params: { id }})
     }
+  },
+  computed: {
+    src(){
+      const {id} = this.$route.params
+      return `/static/third/${id}.png`
+    },
+
   },
   components: {
     Header: Header

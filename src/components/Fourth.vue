@@ -5,7 +5,7 @@
     </div>
     <!-- 上方-->
     <a class="mascot" >
-      <img src="../assets/Fourth/1.png" alt="">
+      <img :src="src" alt="">
     </a>
 
     <div class="plastic-container">
@@ -59,13 +59,20 @@ export default {
   },
   methods: {
     handleForward(){
-      this.$router.push("/Fifth" )
+      const {id} = this.$route.params
+      this.$router.push({ name: 'Fifth', params: { id }})
+    }
+  },
+  computed: {
+    src(){
+      const {id} = this.$route.params
+      return `/static/fourth/${id}.png`
     }
   },
   components: {
     Header: Header
   }
-};
+}
 </script>
 
 <style scoped lang="scss">

@@ -17,14 +17,12 @@
           <img src="../assets/second/choice.png" alt="">
         </a>
       </div>
-    </div> 
-    <div id="example">
-      <carousel-3d @after-slide-change="onAfterSlideChange" :width="200" :height="280" :perspective="0" :space="280" :display="3">
-        <slide v-for="(slide, i) in slides" :index="i">
+    </div>
+      <carousel-3d @after-slide-change="onAfterSlideChange" :width="157" :height="270" :perspective="0" :space="280" :display="3">
+        <slide v-for="(slide, i) in slides" :index="i" :key="slide.id">
           <img :src="slide.src" />
         </slide>
-      </carousel-3d>      
-    </div>
+      </carousel-3d>
 
   <!-- 下方-->
     <div class="container">
@@ -44,7 +42,7 @@
 import Header from "@/components/Header";
 import { Carousel3d, Slide } from 'vue-carousel-3d';
 export default {
-  el: '#example',
+
   data(){
     return{
       index: 0,
@@ -83,18 +81,14 @@ export default {
       const id = this.slides[this.index].id
       // console.log(id)
       // console.log(`/Third/${id}`)
-      this.$router.push(`/Third/${id}`)
+      this.$router.push({ name: 'Third', params: { id }})
 
      /*  const id = this.slides  this.[index].id*/
     }
   },
-/*
-  computed: {
-    toButton() {
-      this.slides[index].id = handleNext(id)
-    },
-*/
+
   components: {
+    Header,
     Carousel3d,
     Slide
   }
@@ -132,8 +126,7 @@ export default {
     border: 0px;
     margin: 0px;
     img{
-      width: 200px;
-      height: 280px;
+
     }
   }
 }

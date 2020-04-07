@@ -3,7 +3,7 @@
     <div class="backgroud"></div>
     <a class="dance" href="">
           <!-- 素材還沒好，暫時以這個替代-->
-      <img src="../assets/fifth/blue_ecg.gif" alt="">
+      <img src="../assets/fifth/blue_ecg.gif"  alt="">
     </a>
   </div>
 
@@ -11,8 +11,16 @@
 <script>
 export default {
   created() {
-    setTimeout(() => this.$router.push({ path: "/Sixth" }), 3500); 
+    const {id} = this.$route.params
+    setTimeout(() => this.$router.push({ name: 'Sixth', params: { id } }), 3500); 
   }
+  // ,
+  // computed: {
+  //   src(){
+  //     const {id} = this.$route.params
+  //     return `/static/fifth/${id}.gif`
+  //   },
+  // }
 };
 </script>
 
