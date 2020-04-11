@@ -10,12 +10,32 @@
       </a>
 
       <div class="list">
-        <a class="waiting_list">
+        <div class="waiting_list">
           <img src="../assets/second/waiting_list.png" alt="">
-        </a>  
-        <a class="choice">
-          <img src="../assets/second/choice.png" alt="">
-        </a>
+        </div>
+        <div class="dropdown">
+            <!-- 點擊按鈕show出下方-->
+          <button class="dropbtn" @click="show = !show">
+            <img src="../assets/second/choice.png" alt="">
+          </button>
+          <div class="dropdown-content" v-if="show">
+            <button class="" >
+              <img src="../assets/second/north.png" alt="">
+            </button>
+            <button class="" >
+              <img src="../assets/second/centrol.png" alt="">
+            </button>
+            <button class="" >
+              <img src="../assets/second/south.png" alt="">
+            </button>
+            <button class="" >
+              <img src="../assets/second/east.png" alt="">
+            </button>
+            <button class="" >
+              <img src="../assets/second/remote_island.png" alt="">
+            </button>
+          </div>
+        </div>
       </div>
     </div>
       <carousel-3d @after-slide-change="onAfterSlideChange" :width="157" :height="270" :perspective="0" :space="280" :display="3">
@@ -45,6 +65,7 @@ export default {
 
   data(){
     return{
+      show: false,
       index: 0,
       slides: [
         {
@@ -84,8 +105,12 @@ export default {
       this.$router.push({ name: 'Third', params: { id }})
 
      /*  const id = this.slides  this.[index].id*/
-    }
+
+    },
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
   },
+
 
   components: {
     Header,
@@ -99,6 +124,7 @@ export default {
 <style scoped lang="scss">
 
 .container{
+  z-index: 1;
   //上方、下方拍版
   display: flex;
   flex-direction: column;
@@ -111,15 +137,44 @@ export default {
       }
     }
     .list{
+      display: flex;
+      justify-content: space-around;
       margin-top: 30px;
-      img{
-        margin: 20px;
-        height: 30px;
+      margin-bottom: 20px;
+      .waiting_list{
+        img{
+          margin: 20px 20px 0px 20px;
+          height: 30px;
+        }
+      }
+      .dropdown{
+        position: relative;
+        display: inline-block;
+        .dropbtn{
+          img{
+            margin: 20px 20px 0px 20px;
+            height: 30px;
+          }
+        }
+        .dropdown-content{
+          display: block;
+          position: absolute;
+          left: 30px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            img{
+              padding: 8px 30px 8px 35px;
+              height: 15px;
+              display: block;
+              margin-bottom: 5px;
+            }      
+          
+        }
       }
     }
 }
 
 .carousel-3d-container {
+  z-index: 0;
   height: auto !important;
   .carousel-3d-slide {
     background: transparent;

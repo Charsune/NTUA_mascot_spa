@@ -33,12 +33,14 @@ export default {
     return{};
   },
   methods: {
+    // 點擊按鈕將id傳至第四頁
     handleNext(){
       const {id} = this.$route.params
       this.$router.push({ name: 'Fourth', params: { id }})
     }
   },
   computed: {
+    // 抓id把相對應的圖片換上去
     src(){
       const {id} = this.$route.params
       return `/static/third/${id}.png`

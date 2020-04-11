@@ -4,9 +4,17 @@
 
 <script>
 import Vue from 'vue';
-
 </script>
-
+mounted () {
+   window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '505133300173610',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v6.0'
+    });
+  };
+}
 <style>
 body,
 html {

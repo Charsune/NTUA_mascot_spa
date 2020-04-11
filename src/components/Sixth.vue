@@ -10,38 +10,41 @@
           <a class="name" >
             <img src="../assets/sixth/happi.png" alt="">
           </a>
-          <a class="plus">
+          <!-- 點擊按鈕按鈕會向右旋轉，下方的 註解「整形公開」區塊會從螢幕下方跑上來 -->
+          <a :class="[rotate?'plus':'x']" @click="handlePlus();show = !show">
             <img src="../assets/sixth/plus.png" alt="">
           </a>        
         </div>
-
               <!-- 吉祥物-->
         <a class="mascot">
           <img :src="src" alt="">
         </a>
 
         <div class="bottom-container">
-          <a class="like">
+          <button id="like">
             <img src="../assets/sixth/like.png" alt="">
-          </a>
-          <a :href="src" download class="download">
+          </button>
+          <button id="download" href="src">
             <img src="../assets/sixth/download.png" alt="">
-          </a> 
-          <a class="share">
+          </button> 
+          <button id="shareBtn" @click="handleShare">
             <img src="../assets/sixth/share.png" alt="">
-          </a>  
-          <a class="home">
+          </button>  
+          <button id="home">
             <router-link to="/First"><img src="../assets/sixth/home.png" alt=""></router-link>
-          </a>          
+          </button>  
         </div>
-      </div>     
-    </div>
-    <!-- 整形公開-->
-    <div class="open">
-      <div class="img-container">
-        <img src="../assets/sixth/public/happi.png" alt="">
       </div>
     </div>
+    <!-- 整形公開-->
+    <transition name="open">
+      <div v-if="show">
+        <div class="img-container">
+          <img src="../assets/sixth/public/happi.png" alt="">
+        </div>
+      </div>
+    </transition>
+
   </div>
   
 
@@ -50,11 +53,31 @@
 import Header from "@/components/Header";
 export default {
   data(){
-    return{};
+    return{
+      rotate:false,
+      show: true
+    };
   },
   methods: {
     handleForward(){
       this.$router.push("/Second")
+    },
+    handlePlus(){
+      this.rotate=!this.rotate;
+      console.log(this.rotate)
+    },
+    handleShare() {
+      FB.init({
+        appId            : '505133300173610',
+        autoLogAppEvents : true,
+        xfbml            : true,
+        version          : 'v6.0'
+      });
+      FB.ui({
+        display: 'popup',
+        method: 'share',
+        href: 'https://developers.facebook.com/docs/',
+      }, function(response){});
     }
   },
   computed: {
@@ -85,8 +108,8 @@ export default {
   // 本體
   .content{
     background-color: #ffd876;
-    height: 812px;
-    width: 375px;
+    height: 100%;
+    width: 100%;
     .container{
       display: flex;
       flex-direction: column;
@@ -108,6 +131,16 @@ export default {
             height: 60px;
           }
         }
+        .x{
+          margin-top: 50px;
+          margin-left: 60px;   
+          transform:rotate(+180deg);
+          transition: all 0.5s;
+          img{
+            display: block;
+            height: 60px;
+          }          
+        }
       }
   }
 }
@@ -119,60 +152,56 @@ export default {
     }
   }
   .bottom-container{
-    .like{
+    #like{
       img{
         height: 60px;
       }
     }
-    .download{
+    #download{
       img{
         height: 60px;
       }
     }
-    .share{
+    #shareBtn{
       img{
         height: 60px;
       }
     }
-    .home{
+    #home{
       margin-left: 30px;
       img{
         height: 60px;
       }
     }
   }
-  //  .open{
-  //   background-color: white;
-  //   height: 900px;
-  //   width: 375px;
-  //   .img-container{
-  //     display: flex;
-  //     justify-content: center;
-  //     img{
-  //       display: block;
-  //       height: 360px;
-  //     }
-  //   }
-  // }
 
   // 整形公開
   .opne{
-    position: fixed;
-    height: 780px;
-    width: 350px;
     background-color: white;
     .img-container{
       display: flex;
       justify-content: center;
+      height: 780px;
+      width: 350px;
       img{
-        display: block;
         height: 300px;
       }
     }
   }
+  .open-fade-enter-active {
+  transition: all .3s south;
+  }
+  .open-fade-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .open-fade-enter, .open-fade-leave-to
+  /* .slide-fade-leave-active for below version 2.1.8 */ {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+
   
 }
-
 
 
 

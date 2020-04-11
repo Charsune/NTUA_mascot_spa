@@ -37,8 +37,61 @@
         </div>
 
       </div>
-  
     </div> 
+    <!-- 整成程度拖移 -->
+    <div class="slide">
+      <div class="slide-container">
+        <div class="animation">
+          <img class="items"src="../assets/fourth/icon1.gif" alt="">
+        </div>
+        <div class="level">
+          <img src="../assets/fourth/eyes_distance.png" alt="">
+          <vue-slider :width="200" v-model="value"></vue-slider>        
+        </div>
+      </div>
+
+      <div class="slide-container">
+        <div class="animation">
+          <img class="items"src="../assets/fourth/icon1.gif" alt="">
+        </div>
+        <div class="level">
+          <img src="../assets/fourth/eyes_distance.png" alt="">
+          <vue-slider :width="200" v-model="value"></vue-slider>        
+        </div>
+      </div>
+
+      <div class="slide-container">
+        <div class="animation">
+          <img class="items"src="../assets/fourth/icon1.gif" alt="">
+        </div>
+        <div class="level">
+          <img src="../assets/fourth/eyes_distance.png" alt="">
+          <vue-slider :width="200" v-model="value"></vue-slider>        
+        </div>
+      </div>
+
+      <div class="slide-container">
+        <div class="animation">
+          <img class="items"src="../assets/fourth/icon1.gif" alt="">
+        </div>
+        <div class="level">
+          <img src="../assets/fourth/eyes_distance.png" alt="">
+          <vue-slider :width="200" v-model="value"></vue-slider>        
+        </div>
+      </div>
+
+      <div class="slide-container">
+        <div class="animation">
+          <img class="items"src="../assets/fourth/icon1.gif" alt="">
+        </div>
+        <div class="level">
+          <img src="../assets/fourth/eyes_distance.png" alt="">
+          <vue-slider :width="200" v-model="value"></vue-slider>        
+        </div>
+      </div>
+
+    </div>
+
     <div class="go_emergency">
       <button @click="handleForward" class="go_emergency">
         <img src="../assets/first/go_emergency.png" alt="">
@@ -53,6 +106,8 @@
 </template>
 <script>
 import Header from "@/components/Header";
+import VueSlider from 'vue-slider-component'
+import 'vue-slider-component/theme/antd.css'
 export default {
   data(){
     return{};
@@ -70,7 +125,8 @@ export default {
     }
   },
   components: {
-    Header: Header
+    Header,
+    VueSlider
   }
 }
 </script>
@@ -171,6 +227,45 @@ export default {
         width: 38px;
       }
     }
+  }
+}
+
+.slide{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .slide-container{
+    display: flex;
+    align-content: space-between;
+    margin-top:15px;
+    .animation{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width:50px;
+      height:50px;
+      border-radius: 10px;
+      box-shadow: 10px block;
+      background-color: #F7F7F7;
+
+      img{
+        height: 30px;
+      }
+    }
+    .level{
+      margin-left: 20px;
+      img{
+        height: 13px;
+      }
+    }
+  }
+}
+.go_emergency{
+  display: flex;
+  justify-content: center;
+  img{
+    display: block;
+    height: 80px;
   }
 }
 
