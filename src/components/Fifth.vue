@@ -3,7 +3,7 @@
     <div class="backgroud"></div>
     <a class="dance" href="">
           <!-- 素材還沒好，暫時以這個替代-->
-      <img src="../assets/fifth/blue_ecg.gif"  alt="">
+      <img src="../assets/fifth/loading.gif"  alt="">
     </a>
   </div>
 </template>
@@ -21,17 +21,17 @@ export default {
 .fifth{
   .backgroud{
     display: block;
-    height: 812px;
-    width: 375px;
+    height: 100vh;
+    width: 100vw;
     background-color: #59E2F5;
   }
   .dance{
     position: fixed;
-    top: 30%;
-    left: 28%;
+    top: 0;
+    left: 0;
     img{
       display: block;
-      height: 80px;
+      height: 100vh;
     }
   }
 }

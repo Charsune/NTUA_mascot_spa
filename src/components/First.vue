@@ -17,9 +17,10 @@
       </a>
       
       <div class="ECG">
-        <a class="ecg" href="">
+
+        <div class="ecg">
           <img src="../assets/first/blue_ecg.gif" alt="">
-        </a>
+        </div>
 
         <div class="">
           <button @click="handleForward" class="going_to">
@@ -88,6 +89,7 @@ export default {
       position: relative;
       margin-top: 50px;
       .ecg{
+        pointer-events: none;
         img{
           width: 375px; 
         }

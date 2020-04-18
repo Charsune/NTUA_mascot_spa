@@ -19,19 +19,19 @@
             <img src="../assets/second/choice.png" alt="">
           </button>
           <div class="dropdown-content" v-if="show">
-            <button class="" >
+            <button  @click="()=>handleZone('北部')">
               <img src="../assets/second/north.png" alt="">
             </button>
-            <button class="" >
+            <button  @click="()=>handleZone('中部')">
               <img src="../assets/second/centrol.png" alt="">
             </button>
-            <button class="" >
+            <button  @click="()=>handleZone('南部')">
               <img src="../assets/second/south.png" alt="">
             </button>
-            <button class="" >
+            <button  @click="()=>handleZone('東部')">
               <img src="../assets/second/east.png" alt="">
             </button>
-            <button class="" >
+            <button  @click="()=>handleZone('外島')">
               <img src="../assets/second/remote_island.png" alt="">
             </button>
           </div>
@@ -39,7 +39,7 @@
       </div>
     </div>
       <carousel-3d @after-slide-change="onAfterSlideChange" :width="157" :height="270" :perspective="0" :space="280" :display="3">
-        <slide v-for="(slide, i) in slides" :index="i" :key="slide.id">
+        <slide v-for="(slide, i) in computedSlides" :index="i" :key="slide.id">
           <img :src="slide.src" />
         </slide>
       </carousel-3d>
@@ -65,29 +65,115 @@ export default {
 
   data(){
     return{
+      zone: undefined,
       show: false,
       index: 0,
       slides: [
         {
+          zone:'南部',
           id: '1',
           src: '/static/second/mascots/1.png',
         }, 
         {
+          zone:'北部',
           id: '2',
           src: '/static/second/mascots/2.png',
         }, 
         {
+          zone:'南部',
           id: '3',
           src: '/static/second/mascots/3.png',
         }, 
         {
+          zone:'南部',
           id: '4',
           src: '/static/second/mascots/4.png',
         }, 
         {
+          zone:'北部',
           id: '5',
           src: '/static/second/mascots/5.png',
-        }
+        },
+        {
+          zone:'北部',
+          id: '6',
+          src: '/static/second/mascots/6.png',
+        },
+        {
+          zone:'南部',
+          id: '7',
+          src: '/static/second/mascots/7.png',
+        },
+        {
+          zone:'中部',
+          id: '8',
+          src: '/static/second/mascots/8.png',
+        },
+        {
+          zone:'南部',
+          id: '9',
+          src: '/static/second/mascots/9.png',
+        },
+        {
+          zone:'南部',
+          id: '10',
+          src: '/static/second/mascots/10.png',
+        },                
+        {
+          zone:'北部',
+          id: '11',
+          src: '/static/second/mascots/11.png',
+        },
+        {
+          zone:'北部',
+          id: '12',
+          src: '/static/second/mascots/12.png',
+        },
+        {
+          zone:'北部',
+          id: '13',
+          src: '/static/second/mascots/13.png',
+        },
+        {
+          zone:'東部',
+          id: '14',
+          src: '/static/second/mascots/14.png',
+        },
+        {
+          zone:'中部',
+          id: '15',
+          src: '/static/second/mascots/15.png',
+        },
+        {
+          zone:'外島',
+          id: '16',
+          src: '/static/second/mascots/16.png',
+        },
+        {
+          zone:'外島',
+          id: '17',
+          src: '/static/second/mascots/17.png',
+        },
+        {
+          zone:'中部',
+          id: '18',
+          src: '/static/second/mascots/18.png',
+        },
+        {
+          zone:'北部',
+          id: '19',
+          src: '/static/second/mascots/19.png',
+        },
+        {
+          zone:'北部',
+          id: '20',
+          src: '/static/second/mascots/20.png',
+        },
+        {
+          zone:'北部',
+          id: '21',
+          src: '/static/second/mascots/21.png',
+        },        
       ],
     };
   },
@@ -95,6 +181,10 @@ export default {
     onAfterSlideChange(index) {
       this.index = index
       // console.log('@onAfterSlideChange Callback Triggered', 'Slide Index ' + index)
+    },    
+    handleZone(zone) {
+      this.zone = zone
+      this.show = false
     },
     handleNext(){
       // console.log(this.slides)
@@ -111,7 +201,21 @@ export default {
     toggle between hiding and showing the dropdown content */
   },
 
+  computed: {
+    // 抓id把相對應的圖片換上去
+    computedSlides(){
+      const slides = this.slides
+      const zone = this.zone
+      // 一定要看es6
+      return slides.filter((s)=>{
+        // if判斷是要三個等於
+        if(zone === undefined)
+          return true
+        return s.zone === zone
+      })
+    },
 
+  },
   components: {
     Header,
     Carousel3d,
@@ -159,14 +263,24 @@ export default {
         .dropdown-content{
           display: block;
           position: absolute;
-          left: 30px;
+          left: 0px;
+          right: 0px;
+          margin: auto;
+          width: 111px;
+          z-index: 1;
+          background-color: white;
           box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            img{
-              padding: 8px 30px 8px 35px;
-              height: 15px;
+            button{
               display: block;
-              margin-bottom: 5px;
-            }      
+              height: 40px;
+              width: 100%;
+              border-top: 2px solid #F5F5F5;
+              img{
+                margin: auto;
+                height: 15px;
+                display: block;
+              }     
+            } 
           
         }
       }

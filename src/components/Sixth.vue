@@ -1,19 +1,20 @@
+
 <template>
   <div class="sixth" >
   <!-- 本體-->
     <div class="content">
-      <div class="header">
-        <Header/>      
+      <div class="header" >
+        <Header :topBackward="myBackward"/>
       </div>
       <div class="container">
         <div class="top-container">
           <a class="name" >
-            <img src="../assets/sixth/happi.png" alt="">
+            <img :src="src3" alt="">
           </a>
           <!-- 點擊按鈕按鈕會向右旋轉，下方的 註解「整形公開」區塊會從螢幕下方跑上來 -->
           <a :class="[rotate?'plus':'x']" @click="handlePlus();show = !show">
             <img src="../assets/sixth/plus.png" alt="">
-          </a>        
+          </a>
         </div>
               <!-- 吉祥物-->
         <a class="mascot">
@@ -21,26 +22,31 @@
         </a>
 
         <div class="bottom-container">
-          <button id="like">
+          <button id="like" @click="ribbonShow = !ribbonShow">
             <img src="../assets/sixth/like.png" alt="">
           </button>
-          <button id="download" href="src">
+          <a id="download" :href="src" download >
             <img src="../assets/sixth/download.png" alt="">
-          </button> 
+          </a>
           <button id="shareBtn" @click="handleShare">
             <img src="../assets/sixth/share.png" alt="">
           </button>  
           <button id="home">
-            <router-link to="/First"><img src="../assets/sixth/home.png" alt=""></router-link>
-          </button>  
+            <router-link to="/Second"><img src="../assets/sixth/home.png" alt=""></router-link>
+          </button>
         </div>
       </div>
     </div>
+    <div class="ribbon" v-if="ribbonShow">
+      <a href=""class="img-container">
+        <img src="../assets/sixth/ribbon.gif" alt="">
+      </a>
+    </div>
     <!-- 整形公開-->
     <transition name="open">
-      <div v-if="show">
+      <div v-if="show" class="open">
         <div class="img-container">
-          <img src="../assets/sixth/public/happi.png" alt="">
+          <img :src="src2" alt="">
         </div>
       </div>
     </transition>
@@ -55,24 +61,24 @@ export default {
   data(){
     return{
       rotate:false,
-      show: true
+      show: false,
+      ribbonShow: false
     };
   },
   methods: {
     handleForward(){
       this.$router.push("/Second")
+    },    
+    myBackward(){
+      const {id} = this.$route.params
+      this.$router.push(`/Fourth/${id}`)
     },
+
     handlePlus(){
       this.rotate=!this.rotate;
       console.log(this.rotate)
     },
     handleShare() {
-      FB.init({
-        appId            : '505133300173610',
-        autoLogAppEvents : true,
-        xfbml            : true,
-        version          : 'v6.0'
-      });
       FB.ui({
         display: 'popup',
         method: 'share',
@@ -81,12 +87,23 @@ export default {
     }
   },
   computed: {
+    number(){
+      return Math.random()>0.5 ? '' : '.1'
+    },
     src(){
       const {id} = this.$route.params
-      // 隨機
-      const number = Math.random()>0.5 ? '' : '.1'
-      return `/static/sixth/${id}${number}.gif`
+      return `/static/sixth/${id}${this.number}.gif`
+    },
 
+    src2(){
+      const {id} = this.$route.params
+
+      return `/static/sixth/open/${id}${this.number}.png`
+    },
+    src3(){
+      const {id} = this.$route.params
+
+      return `/static/sixth/name/${id}.png`
     }
   //   src1(){
   //     const {id} = this.$route.params
@@ -102,14 +119,12 @@ export default {
 
 <style scoped lang="scss">
 .sixth{
+    height: 100vh;
+  // 本體
+  .content{
     display: flex;
     flex-direction: column;
     align-items: center;
-  // 本體
-  .content{
-    background-color: #ffd876;
-    height: 100%;
-    width: 100%;
     .container{
       display: flex;
       flex-direction: column;
@@ -118,6 +133,8 @@ export default {
         display: flex;
         justify-content: space-around;
         margin-top: 55px;
+        position: relative;
+        // 名字
         .name{
           img{          
             display: block;
@@ -125,49 +142,65 @@ export default {
         }
         .plus{
           margin-top: 50px;
-          margin-left: 60px;       
+          margin-left: 60px;
+          transition: all 1s;
           img{
             display: block;
-            height: 60px;
+            height: 80px;
           }
         }
         .x{
           margin-top: 50px;
           margin-left: 60px;   
-          transform:rotate(+180deg);
-          transition: all 0.5s;
+          transform:rotate(+135deg);
+          transition: all 1s;
           img{
             display: block;
-            height: 60px;
+            height: 80px;
           }          
         }
       }
   }
 }
   .mascot{
-    margin-top: 15px;
+    position: fixed;
+    z-index: -1;
     img{
       display: block;
-      width: 375px;
+      width: 100vw;
     }
   }
   .bottom-container{
+    margin-top: 150%;
     #like{
+      // position: absolute;
+      // left: 5%;
+      // bottom: 12%;
       img{
         height: 60px;
       }
     }
     #download{
+      display: inline-block;
+      // position: absolute;
+      // left: 20%;
+      // bottom: 12%;
       img{
         height: 60px;
       }
     }
     #shareBtn{
+      // position: absolute;
+      // left: 35%;
+      // bottom: 12%;
       img{
         height: 60px;
       }
     }
     #home{
+      // position: absolute;
+      // left: 60%;
+      // bottom: 12%;
       margin-left: 30px;
       img{
         height: 60px;
@@ -176,30 +209,49 @@ export default {
   }
 
   // 整形公開
-  .opne{
-    background-color: white;
+  .open{
+    background-color: #F4F4F4;
+    border-radius: 20px;
+    height: 60vh;
+    width: 90vw;
+    margin: auto;  
+    position: fixed;
+    top: 5%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.99;
     .img-container{
-      display: flex;
-      justify-content: center;
-      height: 780px;
-      width: 350px;
       img{
-        height: 300px;
+        height: 400px;
       }
     }
   }
-  .open-fade-enter-active {
-  transition: all .3s south;
+  .open-enter-active {
+    transition: all 1s cubic-bezier(1.0, 0.8, 0.5, 1.0);
   }
-  .open-fade-leave-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  .open-leave-active {
+    transition: all 1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
   }
-  .open-fade-enter, .open-fade-leave-to
+  .open-enter, .open-leave-to
   /* .slide-fade-leave-active for below version 2.1.8 */ {
-    transform: translateX(10px);
+    transform: translateY(100px);
     opacity: 0;
   }
-
+  .ribbon{
+    pointer-events: none; 
+    z-index: 2;
+    position: fixed;
+    top: 5%;
+    left: 0;
+    img{
+      display: block;
+      height: 90vh;
+    }
+  }
   
 }
 

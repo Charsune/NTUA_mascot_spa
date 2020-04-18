@@ -46,47 +46,53 @@
         </div>
         <div class="level">
           <img src="../assets/fourth/eyes_distance.png" alt="">
-          <vue-slider :width="200" v-model="value"></vue-slider>        
+          <span>{{eyes}}%</span>          
+          <vue-slider :width="200" :tooltip="'none'" v-model="eyes" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle">
+          </vue-slider>
         </div>
       </div>
 
       <div class="slide-container">
         <div class="animation">
-          <img class="items"src="../assets/fourth/icon1.gif" alt="">
+          <img class="items"src="../assets/fourth/icon2.gif" alt="">
         </div>
         <div class="level">
-          <img src="../assets/fourth/eyes_distance.png" alt="">
-          <vue-slider :width="200" v-model="value"></vue-slider>        
+          <img src="../assets/fourth/rhinoplasty.png" alt="">
+          <span>{{rhinoplasty}}%</span>
+          <vue-slider :width="200" :tooltip="'none'" v-model="rhinoplasty" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>
         </div>
       </div>
 
       <div class="slide-container">
         <div class="animation">
-          <img class="items"src="../assets/fourth/icon1.gif" alt="">
+          <img class="items"src="../assets/fourth/icon3.gif" alt="">
         </div>
         <div class="level">
-          <img src="../assets/fourth/eyes_distance.png" alt="">
-          <vue-slider :width="200" v-model="value"></vue-slider>        
+          <img src="../assets/fourth/shrink_lips.png" alt="">
+          <span>{{shrink_lips}}%</span>          
+          <vue-slider :width="200" :tooltip="'none'" v-model="shrink_lips" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>        
         </div>
       </div>
 
       <div class="slide-container">
         <div class="animation">
-          <img class="items"src="../assets/fourth/icon1.gif" alt="">
+          <img class="items"src="../assets/fourth/icon4.gif" alt="">
         </div>
         <div class="level">
-          <img src="../assets/fourth/eyes_distance.png" alt="">
-          <vue-slider :width="200" v-model="value"></vue-slider>        
+          <img src="../assets/fourth/line_carving.png" alt="">
+          <span>{{line_carving}}%</span>          
+          <vue-slider :width="200" :tooltip="'none'" v-model="line_carving" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>        
         </div>
       </div>
 
       <div class="slide-container">
         <div class="animation">
-          <img class="items"src="../assets/fourth/icon1.gif" alt="">
+          <img class="items"src="../assets/fourth/icon5.gif" alt="">
         </div>
         <div class="level">
-          <img src="../assets/fourth/eyes_distance.png" alt="">
-          <vue-slider :width="200" v-model="value"></vue-slider>        
+          <img src="../assets/fourth/autologous_fat_transplantation.png" alt="">
+          <span>{{autologous_fat_transplantation}}%</span>          
+          <vue-slider :width="200" :tooltip="'none'" v-model="autologous_fat_transplantation" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>      
         </div>
       </div>
 
@@ -102,7 +108,6 @@
 
 
 
-
 </template>
 <script>
 import Header from "@/components/Header";
@@ -110,7 +115,24 @@ import VueSlider from 'vue-slider-component'
 import 'vue-slider-component/theme/antd.css'
 export default {
   data(){
-    return{};
+    return{
+      eyes: 50,
+      rhinoplasty: 50,
+      shrink_lips: 50,
+      line_carving: 50,
+      autologous_fat_transplantation: 50,
+      processStyle:{
+        backgroundColor:'#59E2F5',
+      },
+      railStyle:{
+        height:'5px',
+      },
+      dotStyle:{
+        borderRadius: '50%',
+        backgroundColor: '#fff',
+        border: '3px solid #59E2F5',
+      },
+    };
   },
   methods: {
     handleForward(){
@@ -132,6 +154,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 
 .fourth{
   .mascot{
@@ -247,7 +270,6 @@ export default {
       border-radius: 10px;
       box-shadow: 10px block;
       background-color: #F7F7F7;
-
       img{
         height: 30px;
       }
@@ -257,9 +279,19 @@ export default {
       img{
         height: 13px;
       }
+      span{
+        float: right;
+        color: #07E4E0;
+      }
+    }
+    vue-slider{
+      .vue-slider-process custom-class{
+        height: 8px;
+      }
     }
   }
 }
+
 .go_emergency{
   display: flex;
   justify-content: center;

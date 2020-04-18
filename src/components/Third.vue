@@ -13,9 +13,9 @@
       </a>
 
       <div class="ECG">
-        <a class="ecg" href="">
+        <div class="ecg" href="">
           <img src="../assets/third/blue_ecg.gif" alt="">
-        </a>
+        </div>
 
         <div class="">
           <button @click="handleNext" class="next_step">
@@ -84,6 +84,7 @@ export default {
       position: relative;
       margin-top: 10px;
       .ecg{
+        pointer-events: none;
         img{
           display: block;
           width: 375px; 

@@ -11,11 +11,17 @@
 </template>
 <script>
 export default {
+  props:['topBackward'],
   data(){
     return{};
   },
   methods: {
     handleBackward(){
+      if (this.topBackward){
+        this.topBackward()
+        return
+      }
+
       this.$router.back()
     },
     handleHamburger(){
@@ -32,14 +38,12 @@ export default {
 
 
 #menu{
-  display: flex;
   justify-content: space-between;
-  position: relative;
-  top: 30px;
   .backward{
     border: 0;
     background-color: transparent;
     position: absolute;
+    top: 30px;
     left: 30px;
     img{
       height: 20px;
@@ -47,9 +51,11 @@ export default {
   }
   
   .hamburger{
+    display: inline-block;
     border: 0;
     background-color: transparent;
     position: absolute;
+    top: 30px;
     right: 30px;
     img{
       height: 20px;

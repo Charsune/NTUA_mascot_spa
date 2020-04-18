@@ -1,4 +1,5 @@
 <template>
+<div class="Nav">
   <aside class="aside">
     <button @click="handleClose" class="close">
       <img src="../assets/nav/close.png" alt="">
@@ -17,6 +18,7 @@
       <img src="../assets/nav/contact.png" alt="">
     </a>
   </aside>
+</div>
 </template>
 <script>
 export default {
@@ -24,6 +26,7 @@ export default {
     return{};
   },
   methods: {
+
     handleClose(){
       this.$router.back()
     },
@@ -38,7 +41,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.Nav{
+  background-color: #333333;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
 
+}
   .aside{
     // position
     position: fixed;
@@ -73,6 +82,7 @@ export default {
 }
 
 .about_mascot{
+  transition: top 0.3s;
   margin-top: 50px;
   img{
     display: block;
@@ -80,6 +90,7 @@ export default {
   }
 }
 .service{
+  transition: top 0.3s;
   margin-top: 50px;
   img{
     display: block;
