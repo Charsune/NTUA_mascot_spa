@@ -13,6 +13,7 @@
         <div class="waiting_list">
           <img src="../assets/second/waiting_list.png" alt="">
         </div>
+        <!-- 選單 -->
         <div class="dropdown">
             <!-- 點擊按鈕show出下方-->
           <button class="dropbtn" @click="show = !show">
@@ -38,6 +39,7 @@
         </div>
       </div>
     </div>
+    <!-- 選擇吉祥物carousel套件 -->
       <carousel-3d @after-slide-change="onAfterSlideChange" :width="157" :height="270" :perspective="0" :space="280" :display="3">
         <slide v-for="(slide, i) in computedSlides" :index="i" :key="slide.id">
           <img :src="slide.src" />
@@ -65,6 +67,7 @@ export default {
 
   data(){
     return{
+      // 吉祥物資料
       zone: undefined,
       show: false,
       index: 0,
@@ -178,14 +181,17 @@ export default {
     };
   },
   methods: {
-    onAfterSlideChange(index) {
-      this.index = index
-      // console.log('@onAfterSlideChange Callback Triggered', 'Slide Index ' + index)
-    },    
+    // 取得地區訊息
     handleZone(zone) {
       this.zone = zone
       this.show = false
     },
+    // 取得選取吉祥物訊息
+    onAfterSlideChange(index) {
+      this.index = index
+      // console.log('@onAfterSlideChange Callback Triggered', 'Slide Index ' + index)
+    },
+    //  將id帶到下一頁
     handleNext(){
       // console.log(this.slides)
       // console.log(this.index)
@@ -194,11 +200,7 @@ export default {
       // console.log(`/Third/${id}`)
       this.$router.push({ name: 'Third', params: { id }})
 
-     /*  const id = this.slides  this.[index].id*/
-
     },
-    /* When the user clicks on the button, 
-    toggle between hiding and showing the dropdown content */
   },
 
   computed: {
@@ -206,7 +208,7 @@ export default {
     computedSlides(){
       const slides = this.slides
       const zone = this.zone
-      // 一定要看es6
+
       return slides.filter((s)=>{
         // if判斷是要三個等於
         if(zone === undefined)
