@@ -14,6 +14,11 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'Hello',
+      component: Hello
+    },
+    {
       path: '/Hello',
       name: 'Hello',
       component: Hello
@@ -52,6 +57,10 @@ export default new Router({
       path: '/Sixth/:id',
       name: 'Sixth',
       component: Sixth
+    },
+    {
+      path: '*', // 若都無符合上述條件，則轉址「Home首頁」
+      redirect: '/Hello'
     }
   ]
 })

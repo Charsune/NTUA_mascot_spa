@@ -40,8 +40,9 @@
       </div>
     </div>
     <!-- 選擇吉祥物carousel套件 -->
-      <carousel-3d @after-slide-change="onAfterSlideChange" :width="157" :height="270" :perspective="0" :space="280" :display="3">
-        <slide v-for="(slide, i) in computedSlides" :index="i" :key="slide.id">
+      <carousel-3d  ref="myCarousel" @after-slide-change="onAfterSlideChange" :width="157" :height="270" :perspective="0" :space="280" :display="3" :count="computedSlides.length">
+        <!-- :key="slide.id" -->
+        <slide v-for="(slide, i) in computedSlides" :index="i" :key="i">
           <img :src="slide.src" />
         </slide>
       </carousel-3d>
@@ -70,7 +71,7 @@ export default {
       // 吉祥物資料
       zone: undefined,
       show: false,
-      index: 0,
+      index: 1,
       slides: [
         {
           zone:'南部',
@@ -176,7 +177,7 @@ export default {
           zone:'北部',
           id: '21',
           src: '/static/second/mascots/21.png',
-        },        
+        },
       ],
     };
   },
@@ -185,6 +186,7 @@ export default {
     handleZone(zone) {
       this.zone = zone
       this.show = false
+      this.$refs.myCarousel.goSlide(0)
     },
     // 取得選取吉祥物訊息
     onAfterSlideChange(index) {
@@ -199,22 +201,46 @@ export default {
       // console.log(id)
       // console.log(`/Third/${id}`)
       this.$router.push({ name: 'Third', params: { id }})
-
     },
-  },
 
+
+  },
+  // computed: {
+  //   // 抓id把相對應的圖片換上去
+  //   computedSlides(){
+  //     const slides = this.slides
+  //     const zone = this.zone
+
+  //     return slides.filter((s)=>{
+  //       // if判斷是要三個等於
+  //       if(zone === undefined)
+  //         return true
+  //       return s.zone === zone
+  //     })
+  //   },
+
+  // },
   computed: {
     // 抓id把相對應的圖片換上去
     computedSlides(){
-      const slides = this.slides
       const zone = this.zone
 
-      return slides.filter((s)=>{
+      let slides = this.slides.filter((s)=>{
         // if判斷是要三個等於
         if(zone === undefined)
           return true
         return s.zone === zone
       })
+
+      if (slides.length < 2){
+        return slides
+      }
+
+      if (slides.length < 3){
+        slides = [...slides, ...slides];
+      }
+
+      return slides;
     },
 
   },

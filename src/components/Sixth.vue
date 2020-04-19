@@ -71,7 +71,7 @@ export default {
     },    
     myBackward(){
       const {id} = this.$route.params
-      this.$router.push(`/Fourth/${id}`)
+      this.$router.replace(`/Fourth/${id}`)
     },
 
     handlePlus(){
@@ -86,9 +86,28 @@ export default {
       }, function(response){});
     }
   },
+ 
+  mounted(){
+    let random = Math.random()
+  },
   computed: {
     number(){
-      return Math.random()>0.5 ? '' : '.1'
+
+      const {id} = this.$route.params
+      // id為9的吉祥物會有多一種結果出現
+      if (this.id===9&&this.random < 0.333){
+        return''
+      } 
+      if (this.id===9&&this.random < 0.666){
+        return'.1'
+      }
+      if (this.id===9&&this.random < 1) {
+        return'.2'
+      }
+      if(this.id!==9&&this.random < 0.5){
+        return''
+      }
+      return'.1'
     },
     src(){
       const {id} = this.$route.params
@@ -105,11 +124,15 @@ export default {
 
       return `/static/sixth/name/${id}.png`
     }
+ },
   //   src1(){
   //     const {id} = this.$route.params
   //     return `/static/fourth/${id}.png`
   //   }
-  },
+
+
+          // const random = Math.random()
+        // return Math.random()>0.5 ? '' : '.1'
 
   components: {
     Header: Header
@@ -132,17 +155,16 @@ export default {
       .top-container{
         display: flex;
         justify-content: space-around;
-        margin-top: 55px;
+        margin-top: 105px;
         position: relative;
         // 名字
         .name{
           img{          
             display: block;
+            height: 60px;
           }
         }
         .plus{
-          margin-top: 50px;
-          margin-left: 60px;
           transition: all 1s;
           img{
             display: block;
@@ -150,8 +172,6 @@ export default {
           }
         }
         .x{
-          margin-top: 50px;
-          margin-left: 60px;   
           transform:rotate(+135deg);
           transition: all 1s;
           img{

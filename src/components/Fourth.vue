@@ -157,6 +157,7 @@ export default {
 
 
 .fourth{
+  font-family: 'GenJyuuGothic-P-Medium';
   .mascot{
     img{
       margin-top: 95px;
