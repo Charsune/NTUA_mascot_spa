@@ -31,10 +31,10 @@ export default {
       this.$router.back()
     },
     handleAbout(){
-      this.$router.replace("/First" )
+      this.$router.replace("/first" )
     },
     handleService(){
-      this.$router.replace("/Second" )
+      this.$router.replace("/second" )
     }
   }
 };

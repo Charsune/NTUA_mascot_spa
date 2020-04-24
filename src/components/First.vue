@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     handleForward(){
-      this.$router.push("/Second")
+      this.$router.push("/second")
     }
   },
   components: {
@@ -57,20 +57,23 @@ export default {
 
 
 .first{
+  height: 100%;
+  width: 100%;
   .content{
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    height: 100%;
+    width: 100%;
     .about{
-      margin-top: 100px;
+      margin-top: 20%;
       img{
         display: block;
         height: 30px;
       }
     }
     .logo{
-      margin-top: 60px;
+      margin-top: 16%;
       img{
         display: block;
         height: 80px; 
@@ -78,7 +81,7 @@ export default {
     }
 
     .about-text{
-      margin-top: 50px;
+      margin-top: 14%;
       img{
         display: block;
         height: 110px;
@@ -87,7 +90,7 @@ export default {
     
     .ECG{
       position: relative;
-      margin-top: 50px;
+      margin-top: 13%;
       .ecg{
         pointer-events: none;
         img{
@@ -106,7 +109,7 @@ export default {
     }
 
     .copyright{
-      margin-top: 20px;  
+      margin-top: 8%;  
       img{
         display: block;
         height: 14px; 

@@ -19,13 +19,14 @@ export default {
 <style scoped lang="scss">
 
 .hello{
-  max-height: 812px;
-  max-width: 375px;
+  height: 100%;
+  width: 100%;
+  background-color: #59E2F5;
+  display: flex;
+  justify-content: center;
   .logo{
     position: fixed;
     top: 30%;
-    left: 28%; 
-
     img{
       height: 80px;
       filter: brightness(100);

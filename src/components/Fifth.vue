@@ -19,19 +19,21 @@ export default {
 <style scoped lang="scss">
 
 .fifth{
-  .backgroud{
-    display: block;
-    height: 100vh;
-    width: 100vw;
-    background-color: #59E2F5;
-  }
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-color: #59E2F5;
+  display: flex;
+  justify-content: center;
+  
   .dance{
     position: fixed;
     top: 0;
     left: 0;
     img{
       display: block;
-      height: 100vh;
+      height: 100%;
+      width: 100%;
     }
   }
 }

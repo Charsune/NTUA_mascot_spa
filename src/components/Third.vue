@@ -1,5 +1,5 @@
 <template>
-  <div class="second">
+  <div class="third">
     <div class="header">
       <Header/>      
     </div>
@@ -67,10 +67,10 @@ export default {
       }
     }
     .mascot{
-      margin-top: 30px;
+      margin-top: 5%;
       img{
         display: block;
-        width: 375px;
+        width: 330px;
       }
     }
     .next_step{

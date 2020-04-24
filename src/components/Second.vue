@@ -40,7 +40,7 @@
       </div>
     </div>
     <!-- 選擇吉祥物carousel套件 -->
-      <carousel-3d  ref="myCarousel" @after-slide-change="onAfterSlideChange" :width="157" :height="270" :perspective="0" :space="280" :display="3" :count="computedSlides.length">
+      <carousel-3d  ref="myCarousel" @after-slide-change="onAfterSlideChange" :width="139.5" :height="240" :perspective="0" :space="280" :display="3" :count="computedSlides.length">
         <!-- :key="slide.id" -->
         <slide v-for="(slide, i) in computedSlides" :index="i" :key="i">
           <img :src="slide.src" />
@@ -71,7 +71,7 @@ export default {
       // 吉祥物資料
       zone: undefined,
       show: false,
-      index: 1,
+      index: 0,
       slides: [
         {
           zone:'南部',
@@ -139,12 +139,12 @@ export default {
           src: '/static/second/mascots/13.png',
         },
         {
-          zone:'東部',
+          zone:'南部',
           id: '14',
           src: '/static/second/mascots/14.png',
         },
         {
-          zone:'中部',
+          zone:'東部',
           id: '15',
           src: '/static/second/mascots/15.png',
         },
@@ -197,13 +197,11 @@ export default {
     handleNext(){
       // console.log(this.slides)
       // console.log(this.index)
-      const id = this.slides[this.index].id
+      const id = this.computedSlides[this.index].id
       // console.log(id)
       // console.log(`/Third/${id}`)
       this.$router.push({ name: 'Third', params: { id }})
     },
-
-
   },
   // computed: {
   //   // 抓id把相對應的圖片換上去
@@ -254,15 +252,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.second{
+  height: 100%;
+  width: 100%;
+}
 .container{
+  height: 100%;
+  width: 100%;
   z-index: 1;
   //上方、下方拍版
   display: flex;
   flex-direction: column;
   align-items: center;
     .waiting{
-      margin-top: 15px;
+      margin-top: 5%;
       img{
         display: block;
         height: 50px;
@@ -271,8 +274,8 @@ export default {
     .list{
       display: flex;
       justify-content: space-around;
-      margin-top: 30px;
-      margin-bottom: 20px;
+      margin-top: 3%;
+      margin-bottom: 6%;
       .waiting_list{
         img{
           margin: 20px 20px 0px 20px;
@@ -316,6 +319,7 @@ export default {
 }
 
 .carousel-3d-container {
+  margin-top: 12%; 
   z-index: 0;
   height: auto !important;
   .carousel-3d-slide {
@@ -329,7 +333,7 @@ export default {
 }
 
 .next_step{
-  margin-top: 0px;    
+  margin-top: 5%;
   img{
     display: block;
     height: 100px; 
@@ -337,7 +341,7 @@ export default {
 }
 
 .copyright{
-  margin-top: 80px;    
+  margin-top: 8%;    
   img{
     display: block;
     height: 14px; 

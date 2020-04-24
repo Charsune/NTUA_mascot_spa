@@ -19,42 +19,42 @@ export default new Router({
       component: Hello
     },
     {
-      path: '/Hello',
+      path: '/hello',
       name: 'Hello',
       component: Hello
     },
     {
-      path: '/Nav',
+      path: '/nav',
       name: 'Nav',
       component: Nav
     },
     {
-      path: '/First',
+      path: '/first',
       name: 'First',
       component: First
     },
     {
-      path: '/Second',
+      path: '/second',
       name: 'Second',
       component: Second
     },
     {
-      path: '/Third/:id',
+      path: '/third/:id',
       name: 'Third',
       component: Third
     },
     {
-      path: '/Fourth/:id',
+      path: '/fourth/:id',
       name: 'Fourth',
       component: Fourth
     },
     {
-      path: '/Fifth/:id',
+      path: '/fifth/:id',
       name: 'Fifth',
       component: Fifth
     },
     {
-      path: '/Sixth/:id',
+      path: '/sixth/:id',
       name: 'Sixth',
       component: Sixth
     },

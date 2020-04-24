@@ -17,15 +17,15 @@ export default {
   },
   methods: {
     handleBackward(){
-      if (this.topBackward){
-        this.topBackward()
-        return
-      }
+      // if (this.topBackward){
+      //   this.topBackward()
+      //   return
+      // }
 
       this.$router.back()
     },
     handleHamburger(){
-      this.$router.push("/Nav" )
+      this.$router.push("/nav" )
     }
   }
 
