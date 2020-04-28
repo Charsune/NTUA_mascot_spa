@@ -9,6 +9,7 @@ import Third from '@/components/Third'
 import Fourth from '@/components/Fourth'
 import Fifth from '@/components/Fifth'
 import Sixth from '@/components/Sixth'
+import Policy from '@/components/Policy'
 Vue.use(Router)
 
 export default new Router({
@@ -59,8 +60,13 @@ export default new Router({
       component: Sixth
     },
     {
-      path: '*', // 若都無符合上述條件，則轉址「Home首頁」
-      redirect: '/Hello'
+      path: '/policy',
+      name: 'Policy',
+      component: Policy
+    },
+    {
+      path: '*', // 若都無符合上述條件，則轉址「hello」
+      redirect: '/hello'
     }
   ]
 })

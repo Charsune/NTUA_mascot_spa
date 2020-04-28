@@ -100,7 +100,7 @@
 
       <div class="go_emergency">
         <button @click="handleForward" class="go_emergency">
-          <img src="../assets/first/go_emergency.png" alt="">
+          <img src="../assets/fourth/go_emergency.png" alt="">
         </button>
       </div>
     </div> 
@@ -179,13 +179,13 @@ export default {
     position: relative;
     .tab-base{
       img{
-        height: 35px;
+        height: 36px;
       }
     }
     .tab-1{
       .tab-1-1{
         position: absolute;
-        top: 12px;
+        top: 11px;
         right: 52px;
         img{
           display: block;
@@ -196,7 +196,7 @@ export default {
     .tab-1-button-checkbox{
       opacity: 0;
       position: absolute;
-      top: 12px;
+      top: 11px;
       right: 52px;
       width: 25px;
       height: 10px; 
@@ -210,7 +210,7 @@ export default {
     .choice-1 {
       display: none;
       position: absolute;
-      top: 8.5px;
+      top: 9.5px;
       right: 48px;
       img{
         width: 38px;
@@ -219,7 +219,7 @@ export default {
     .tab-2{
       .tab-2-2{
         position: absolute;
-        top: 12px;
+        top: 11px;
         right: 15px;
         img{
           display: block;
@@ -244,7 +244,7 @@ export default {
     .choice-2 {
       display: none;
       position: absolute;
-      top: 8.5px;
+      top: 9.5px;
       right: 8px;
       img{
         width: 38px;
@@ -260,7 +260,7 @@ export default {
   .slide-container{
     display: flex;
     align-content: space-between;
-    margin-top:3%;
+    margin-top: 5%;
     .animation{
       display: flex;
       justify-content: center;
@@ -270,6 +270,9 @@ export default {
       border-radius: 10px;
       box-shadow: 10px block;
       background-color: #F7F7F7;
+      box-shadow: -4px 0px 2px 0px rgba(160,174,195,0.10),
+                  0px 4px 2px 0px rgba(160,174,195,0.10),
+                  4px 0px 2px 0px rgba(160,174,195,0.10);
       img{
         height: 40px;
       }
@@ -293,6 +296,7 @@ export default {
 }
 
 .go_emergency{
+
   display: flex;
   justify-content: center;
   img{

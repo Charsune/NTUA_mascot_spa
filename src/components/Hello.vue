@@ -11,7 +11,7 @@
 <script>
 export default {
   created() {
-    setTimeout(() => this.$router.push({ path: "/First" }), 3500); 
+    setTimeout(() => this.$router.push({ path: "/first" }), 3500); 
   }
 };
 </script>
@@ -21,7 +21,7 @@ export default {
 .hello{
   height: 100%;
   width: 100%;
-  background-color: #59E2F5;
+  background-color: #07E4E0;
   display: flex;
   justify-content: center;
   .logo{

@@ -54,7 +54,7 @@ export default {
     top: 0;
     right: 0;
     bottom: 0;
-    //左右置中
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,15 +65,12 @@ export default {
   }
 
 .close{
-  //basic
   border: 0;
   padding: 0;
   background: none;
 
-  //靠右
   align-self: flex-end;
-
-  //調整跟 about 的距離      
+     
   margin: 0 0 20px;
   img{
     display: block;
@@ -86,7 +83,7 @@ export default {
   margin-top: 50px;
   img{
     display: block;
-    height: 20px;
+    height: 17px;
   }
 }
 .service{
@@ -94,7 +91,7 @@ export default {
   margin-top: 50px;
   img{
     display: block;
-    height: 20px;
+    height: 17px;
   } 
 }
 .aside-footer{
@@ -105,11 +102,11 @@ export default {
   } 
 }
 .contact{
-  margin-top: 20px; 
-  margin-bottom: 150px; 
+  margin-top: 10px; 
+  margin-bottom: 20px; 
   img{
     display: block;
-    height: 20px;
+    height: 13px;
   } 
 }
 </style>

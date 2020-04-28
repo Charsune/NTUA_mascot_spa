@@ -4,9 +4,6 @@
       <Header/>      
     </div>
     <div class="content">
-      <a class="about" >
-        <img src="../assets/first/about_tittle.png" alt="">
-      </a>
 
       <a class="logo">
         <img src="../assets/first/logo.png" alt="">
@@ -29,9 +26,9 @@
         </div>
       </div>
 
-      <a class="copyright">
+   <!--    <a class="copyright">
         <img src="../assets/first/copyright.png" alt="">
-      </a>      
+      </a> -->
     </div> 
 
   </div>
@@ -65,15 +62,9 @@ export default {
     align-items: center;
     height: 100%;
     width: 100%;
-    .about{
-      margin-top: 20%;
-      img{
-        display: block;
-        height: 30px;
-      }
-    }
+
     .logo{
-      margin-top: 16%;
+      margin-top: 30%;
       img{
         display: block;
         height: 80px; 
@@ -84,13 +75,13 @@ export default {
       margin-top: 14%;
       img{
         display: block;
-        height: 110px;
+        height: 220px;
       }
     }
     
     .ECG{
       position: relative;
-      margin-top: 13%;
+      margin-top: 8%;
       .ecg{
         pointer-events: none;
         img{
@@ -99,22 +90,22 @@ export default {
       }
       .going_to{
         position: absolute;
-        top: 45px;
-        left: 135px;
+        top: 38px;
+        left: 115px;
         img{
           display: block;
-          height: 40px; 
+          height: 45px; 
         }
       }
     }
 
-    .copyright{
-      margin-top: 8%;  
-      img{
-        display: block;
-        height: 14px; 
-      }
-    }
+    // .copyright{
+    //   margin-top: 8%;  
+    //   img{
+    //     display: block;
+    //     height: 14px; 
+    //   }
+    // }
 
   }
 }

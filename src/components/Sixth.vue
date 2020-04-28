@@ -37,8 +37,11 @@
             <button id="shareBtn" @click="handleShare">
               <img src="../assets/sixth/share.png" alt="">
             </button>  
+            <div class="fb-share-button" data-href="http://mascot-test-wang.s3-website-ap-northeast-1.amazonaws.com/" data-layout="button_count" data-size="small">
+              <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmascot-test-wang.s3-website-ap-northeast-1.amazonaws.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a>
+            </div>
             <button id="home">
-              <router-link to="/Second"><img src="../assets/sixth/home.png" alt=""></router-link>
+              <router-link to="/second"><img src="../assets/sixth/home.png" alt=""></router-link>
             </button>
           </div>
         </div>
@@ -71,7 +74,7 @@ export default {
   },
   methods: {
     handleForward(){
-      this.$router.push("/Second")
+      this.$router.push("/second")
     },    
     myBackward(){
       const {id} = this.$route.params
@@ -83,19 +86,19 @@ export default {
       console.log(this.rotate)
     },
     handleShare() {
-      FB.ui({
-        display: 'popup',
-        method: 'share',
-        href: 'https://developers.facebook.com/docs/',
-      }, function(response){});
+      // FB.ui({
+      //   display: 'popup',
+      //   method: 'share',
+      //   href: 'http://mascot-test-wang.s3-website-ap-northeast-1.amazonaws.com',
+      // }, function(response){});
     },
     handleBackward(){
       // if (this.topBackward){
       //   this.topBackward()
       //   return
       // }
-
-      this.$router.back()
+      const {id} = this.$route.params
+      this.$router.replace({ name: 'Fourth', params: { id }})
     },
     handleHamburger(){
       this.$router.push("/nav" )
@@ -155,7 +158,7 @@ export default {
 <style scoped lang="scss">
 
 .sixth{
-  // 本體
+  /*本體*/ 
   .content{
     .container{
       display: flex;
@@ -166,28 +169,31 @@ export default {
         justify-content: space-around;
         margin-top: 20%;
         position: fixed;
-        // 名字
+        /*名字*/ 
         .name{
+          margin-left: 5%;
           img{          
             display: block;
             height: 60px;
           }
         }
         .plus{
-          margin-left: 8%;
+          margin-left: 3%;
+          margin-top: 1.5%;
           transform:rotate(+135deg);
           transition: all 1s;
           img{
             display: block;
-            height: 60px;
+            height: 80px;
           }
         }
         .x{
-          margin-left: 8%;
+          margin-left: 3%;
+          margin-top: 1.5%;
           transition: all 1s;
           img{
             display: block;
-            height: 60px;
+            height: 80px;
           }          
         }
       }
@@ -201,65 +207,65 @@ export default {
       background-size: cover;
       object-fit: cover;
 
-      // overflow-y: auto;
+      /*overflow-y: auto;*/ overflow-y: auto;
 
     }
   }
-  // .block{
-  //   display: block;
-  //   background-color: transparent;
-  //   position: relative;
-  //   img{
-  //     height: 70%;
-  //   }
-  // }
+  /* .block{
+         display: block;
+         background-color: transparent;
+         position: relative;
+         img{
+           height: 70%;
+         }
+   }*/
   .bottom-container{
     position: fixed;
     bottom: 0;
     #like{
-      // position: absolute;
-      // left: 5%;
-      // bottom: 12%;
+    /*  position: absolute;
+        left: 5%;
+         bottom: 12%;*/
       img{
-        height: 60px;
+        height: 55px;
       }
     }
     #download{
-      // position: absolute;
-      // left: 20%;
-      // bottom: 12%;
+      /* position: absolute;
+       left: 20%;
+       bottom: 12%;*/
       img{
-        height: 60px;
+        height: 55px;
       }
     }
     #shareBtn{
-      // position: absolute;
-      // left: 35%;
-      // bottom: 12%;
+      /* position: absolute;
+       left: 35%;
+       bottom: 12%;*/
+       margin-right: 15px;
       img{
-        height: 60px;
+        height: 55px;
       }
     }
     #home{
-      // position: absolute;
-      // left: 60%;
-      // bottom: 12%;
+      /* position: absolute;
+       left: 60%;
+       bottom: 12%;*/
       margin-left: 30px;
       img{
-        height: 60px;
+        height: 55px;
       }
     }
   }
 
-  // 整形公開
+  /*整形公開*/ 
   .open{
-    background-color: #F4F4F4;
-    border-radius: 20px;
-    height: 60%;
-    width: 90%;
+    background-color: transparent;
+    height: 500px;
+    width: 375px;
     margin: auto;  
     position: fixed;
-    top: 5%;
+    top: 22%;
     left: 0;
     right: 0;
     bottom: 0;
@@ -269,15 +275,17 @@ export default {
     opacity: 0.99;
     .img-container{
       img{
-        height: 400px;
+        width: 320px;
       }
     }
   }
   .open-enter-active {
-    transition: all 1s cubic-bezier(1.0, 0.8, 0.5, 1.0);
+    // transition: all 1s cubic-bezier(1.0, 0.8, 0.5, 1.0);
+    transition: all 1s ;
   }
   .open-leave-active {
-    transition: all 1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    // transition: all 1s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    transition: all 1s ;
   }
   .open-enter, .open-leave-to
   /* .slide-fade-leave-active for below version 2.1.8 */ {
@@ -323,6 +331,17 @@ export default {
     }
   }
 }
-
+.fb-share-button{
+  position: fixed;
+  bottom: 0;
+  left: 40%;
+  height: 55px;
+  width: 55px; 
+  .fb-xfbml-parse-ignore{ 
+    height: 100%;
+    width: 100%;  
+    color: transparent;
+  }
+}
 
 </style>

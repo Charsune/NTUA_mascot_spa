@@ -55,7 +55,6 @@ export default {
 
 <style scoped lang="scss">
 .container{
-  //排版
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,22 +66,16 @@ export default {
       }
     }
     .mascot{
-      margin-top: 5%;
+      z-index: 2;
+      margin-top: 0px;
       img{
         display: block;
-        width: 330px;
+        width: 375px;
       }
-    }
-    .next_step{
-      margin-top: 0px;    
-      img{
-        display: block;
-        height: 100px; 
-      }      
-    }
+    }      
     .ECG{
       position: relative;
-      margin-top: 10px;
+      margin-top: -10px;
       .ecg{
         pointer-events: none;
         img{
@@ -92,11 +85,11 @@ export default {
       }
       .next_step{
         position: absolute;
-        top: 17px;
-        left: 145px;
+        top: 35px;
+        left: 162px;
         img{
           display: block;
-          height: 90px; 
+          height: 50px; 
         }
       }
     }

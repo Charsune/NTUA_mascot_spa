@@ -2,7 +2,6 @@
   <div class="fifth">
     <div class="backgroud"></div>
     <a class="dance" href="">
-          <!-- 素材還沒好，暫時以這個替代-->
       <img src="../assets/fifth/loading.gif"  alt="">
     </a>
   </div>

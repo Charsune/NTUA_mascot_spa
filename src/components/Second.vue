@@ -260,7 +260,7 @@ export default {
   height: 100%;
   width: 100%;
   z-index: 1;
-  //上方、下方拍版
+  /*上方、下方拍版*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -278,7 +278,7 @@ export default {
       margin-bottom: 6%;
       .waiting_list{
         img{
-          margin: 20px 20px 0px 20px;
+          margin: 22px 20px 0px 20px;
           height: 30px;
         }
       }
@@ -300,7 +300,7 @@ export default {
           width: 111px;
           z-index: 1;
           background-color: white;
-          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          box-shadow: 0px 8px 22px 0px rgba(0,0,0,0.2);
             button{
               display: block;
               height: 40px;
@@ -341,7 +341,7 @@ export default {
 }
 
 .copyright{
-  margin-top: 8%;    
+  margin-top: 5%;    
   img{
     display: block;
     height: 14px; 

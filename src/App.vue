@@ -4,6 +4,8 @@
 
 <script>
 import Vue from 'vue';
+export default {
+}
 </script>
 <style>
 @import'./common/font.css';
