@@ -47,7 +47,7 @@
           <div class="level">
             <img src="../assets/fourth/eyes_distance.png" alt="">
             <span>{{eyes}}%</span>          
-            <vue-slider :width="200" :tooltip="'none'" v-model="eyes" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle">
+            <vue-slider :width="220" :tooltip="'none'" v-model="eyes" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle">
             </vue-slider>
           </div>
         </div>
@@ -59,7 +59,7 @@
           <div class="level">
             <img src="../assets/fourth/rhinoplasty.png" alt="">
             <span>{{rhinoplasty}}%</span>
-            <vue-slider :width="200" :tooltip="'none'" v-model="rhinoplasty" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>
+            <vue-slider :width="220" :tooltip="'none'" v-model="rhinoplasty" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>
           </div>
         </div>
 
@@ -70,7 +70,7 @@
           <div class="level">
             <img src="../assets/fourth/shrink_lips.png" alt="">
             <span>{{shrink_lips}}%</span>          
-            <vue-slider :width="200" :tooltip="'none'" v-model="shrink_lips" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>        
+            <vue-slider :width="220" :tooltip="'none'" v-model="shrink_lips" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>        
           </div>
         </div>
 
@@ -81,7 +81,7 @@
           <div class="level">
             <img src="../assets/fourth/line_carving.png" alt="">
             <span>{{line_carving}}%</span>          
-            <vue-slider :width="200" :tooltip="'none'" v-model="line_carving" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>        
+            <vue-slider :width="220" :tooltip="'none'" v-model="line_carving" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>        
           </div>
         </div>
 
@@ -92,7 +92,7 @@
           <div class="level">
             <img src="../assets/fourth/autologous_fat_transplantation.png" alt="">
             <span>{{autologous_fat_transplantation}}%</span>          
-            <vue-slider :width="200" :tooltip="'none'" v-model="autologous_fat_transplantation" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>      
+            <vue-slider :width="220" :tooltip="'none'" v-model="autologous_fat_transplantation" :process-style="processStyle" :rail-style="railStyle" :dotStyle="dotStyle" ></vue-slider>      
           </div>
         </div>
 
@@ -256,10 +256,11 @@ export default {
 .slide{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-content: space-around;
+  margin-left: 11%;
   .slide-container{
     display: flex;
-    align-content: space-between;
+    align-content: space-around;
     margin-top: 5%;
     .animation{
       display: flex;
@@ -279,8 +280,9 @@ export default {
     }
     .level{
       margin-left: 20px;
+      margin-top: 10px; 
       img{
-        height: 13px;
+        height: 15px;
       }
       span{
         float: right;

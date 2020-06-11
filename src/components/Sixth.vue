@@ -28,18 +28,20 @@
 <!--           <a href=""class="block"></a> -->
 
           <div class="bottom-container">
-            <button id="like" @click="ribbonShow = !ribbonShow">
+            <button id="like" @click="ribbonShow = !ribbonShow;like2 = !like2">
               <img src="../assets/sixth/like.png" alt="">
             </button>
+            <a class="like2" v-if="like2">
+              <img src="../assets/sixth/like2.png" alt="">
+            </a> 
+ 
             <a id="download" :href="src" download >
               <img src="../assets/sixth/download.png" alt="">
             </a>
             <button id="shareBtn" @click="handleShare">
               <img src="../assets/sixth/share.png" alt="">
-            </button>  
-            <div class="fb-share-button" data-href="http://mascot-test-wang.s3-website-ap-northeast-1.amazonaws.com/" data-layout="button_count" data-size="small">
-              <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmascot-test-wang.s3-website-ap-northeast-1.amazonaws.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a>
-            </div>
+            </button>
+            <div class="fb-share-button" data-href="http://mascot-surgery-room.s3-website-ap-northeast-1.amazonaws.com" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmascot-surgery-room.s3-website-ap-northeast-1.amazonaws.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">分享</a></div>
             <button id="home">
               <router-link to="/second"><img src="../assets/sixth/home.png" alt=""></router-link>
             </button>
@@ -69,7 +71,8 @@ export default {
     return{
       rotate:false,
       show: false,
-      ribbonShow: false
+      ribbonShow: false,
+      like2: false
     };
   },
   methods: {
@@ -89,7 +92,7 @@ export default {
       // FB.ui({
       //   display: 'popup',
       //   method: 'share',
-      //   href: 'http://mascot-test-wang.s3-website-ap-northeast-1.amazonaws.com',
+      //   href: 'http://mascot.surgery.room.s3-website-ap-northeast-1.amazonaws.com',
       // }, function(response){});
     },
     handleBackward(){
@@ -141,10 +144,7 @@ export default {
       return `/static/sixth/name/${id}.png`
     }
  },
-  //   src1(){
-  //     const {id} = this.$route.params
-  //     return `/static/fourth/${id}.png`
-  //   }
+
 
 
 
@@ -220,6 +220,8 @@ export default {
          }
    }*/
   .bottom-container{
+    display: flex;
+    justify-content: space-around;
     position: fixed;
     bottom: 0;
     #like{
@@ -227,7 +229,31 @@ export default {
         left: 5%;
          bottom: 12%;*/
       img{
-        height: 55px;
+        height: 56px;
+      }
+    }
+    @media screen and (min-width: 401px) {
+      .like2{
+        pointer-events: none;
+        position: fixed;
+        bottom: 0.8%;
+        left: 12.5%;
+        img{
+          display: block;
+          height: 56px;
+        }
+      }
+    }
+    @media screen and (max-width: 400px) {
+      .like2{
+        pointer-events: none;
+        position: fixed;
+        bottom: 0.8%;
+        left: 9%;
+        img{
+          display: block;
+          height: 56px;
+        }
       }
     }
     #download{
@@ -235,7 +261,7 @@ export default {
        left: 20%;
        bottom: 12%;*/
       img{
-        height: 55px;
+        height: 56px;
       }
     }
     #shareBtn{
@@ -244,16 +270,32 @@ export default {
        bottom: 12%;*/
        margin-right: 15px;
       img{
-        height: 55px;
+        height: 56px;
       }
     }
+    // .fb-share-button{
+    //   position: fixed;
+    //   bottom: 0;
+    //   left: 40%;
+    //   height: 56px;
+    //   width: 56px; 
+    //   .fb-xfbml-parse-ignore{ 
+    //     height: 100%;
+    //     width: 100%;
+    //     color: transparent;
+    //   }
+    //   span{
+    //     height: 56px;
+    //     width: 56px;        
+    //   }
+    // }
     #home{
       /* position: absolute;
        left: 60%;
        bottom: 12%;*/
       margin-left: 30px;
       img{
-        height: 55px;
+        height: 56px;
       }
     }
   }
@@ -331,17 +373,18 @@ export default {
     }
   }
 }
-.fb-share-button{
-  position: fixed;
-  bottom: 0;
-  left: 40%;
-  height: 55px;
-  width: 55px; 
-  .fb-xfbml-parse-ignore{ 
-    height: 100%;
-    width: 100%;  
-    color: transparent;
-  }
-}
+    .fb-share-button{
+      opacity: 0;
+      position: fixed;
+      bottom: 0;
+      left: 40%;
+      height: 55px;
+      width: 55px; 
+      span{
+        width: 100%;
+        height: 100%;
+      }
+    }
+
 
 </style>
