@@ -2,8 +2,8 @@
  [深夜博物館 Midnight Museum]
  國立臺北藝術大學視覺傳達系109級畢業展 放視大賞入圍作品 -- **吉診室 - 吉祥物生成器**
 ## Demo
-[Introduction](https://www.yodex.com.tw/exhibit/1703)
-[Live Demo](http://ntua-mascot.s3-website-ap-northeast-1.amazonaws.com)
+- [Introduction](https://www.yodex.com.tw/exhibit/1703)
+- [Live Demo](http://ntua-mascot.s3-website-ap-northeast-1.amazonaws.com)
 
 ## Skills
 互動功能實踐(Javascript,Vue)
@@ -14,7 +14,6 @@
 
 切版(Html,SCSS)
 - 因開發時程緊湊，在評估專案需求後，僅針對iphone 6/7/8(&plus),iphone X裝置切版，並在iphone X有最好的使用者體驗。
-- 
 
 ## Build Setup
 
